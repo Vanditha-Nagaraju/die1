@@ -30,4 +30,7 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 
 Route::resources([
     'questions' => 'QuestionController',
-]);
+    ]);
+Route::get('users', 'HomeController@users')->name('users');
+Route::get('user/{id}', 'HomeController@user')->name('user.view');
+Route::post('ajaxRequest', 'HomeController@ajaxRequest')->name('ajaxRequest');
