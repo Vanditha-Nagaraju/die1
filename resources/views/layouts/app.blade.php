@@ -69,6 +69,7 @@
                                     <a class="dropdown-item" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
                                 @endif
 
+                                    <a class="dropdown-item" href="{{ route('questions.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">Faq</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
