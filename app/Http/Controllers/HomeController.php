@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
+
 class HomeController extends Controller
 {
     /**
@@ -26,11 +27,15 @@ class HomeController extends Controller
     //public function index()
     //{
         //$user = Auth::user();
-        //$questions = $user->questions()->paginate(6);
-        //return view('home'); //->with('questions', $questions);
+        //$question = $user->questions()->paginate(6);
+        //return view('home')->with('questions', $question);
     //}
+
     public function index()
     {
+        $user = Auth::user();
+        print_r($user);
+        //$question = $user->questions()->paginate(6);
         $users = User::get();
         return view('users', compact('users'));
     }
@@ -58,6 +63,7 @@ class HomeController extends Controller
 
         $user = User::find($request->user_id);
         $response = auth()->user()->toggleFollow($user);
+        console.log($response,'response for auth');
 
 
         return response()->json(['success'=>$response]);

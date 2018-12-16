@@ -13,7 +13,7 @@
                         {{ $user->name }}
                         <br/>
                         <small>
-                            <strong>Email: </strong>{{ $user->email }}
+                                  <strong>Email: </strong>{{ $user->email }}
                         </small>
                     </div>
 
