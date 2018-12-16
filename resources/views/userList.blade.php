@@ -12,11 +12,11 @@
             </p>
             <button class="btn btn-info btn-sm action-follow" data-id="{{ $user->id }}"><strong>
 
-                      @if(auth()->user()->isFollowing($user))
-                            UnFollow
-                        @else
-                            Follow
-                        @endif
+                    @if(auth()->user()->isFollowing($user))
+                        UnFollow
+                    @else
+                        Follow
+                    @endif
                 </strong></button>
 
         </div>

@@ -7,26 +7,18 @@
                 <div class="card">
                     <div class="card-header">My Profile</div>
                     <div class="card-body">
-                        @if($edit === FALSE)
-                            {!! Form::model($profile, ['route' => ['profile.store', Auth::user()->id], 'method' => 'post']) !!}
-                        @else()
-                            {!! Form::model($profile, ['route' => ['profile.update', Auth::user()->id, $profile->id], 'method' => 'patch']) !!}
-                        @endif
-                        <div class="form-group">
-                            {!! Form::label('fname', 'First Name') !!}
-                            {!! Form::text('fname', $profile->fname, ['class' => 'form-control','required' => 'required']) !!}
+                        <div class="col-2 profile-box border p-1 rounded text-center bg-light mr-4 mt-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3QXrSb2RmeSZdYHQsZ_Gl8nTt1QQpJzU27iSIfN8EXWUNFQ0H8g"
+                                 class="w-100 mb-1">
                         </div>
-                        <div class="form-group">
-                            {!! Form::label('lname', 'Last Name') !!}
-                            {!! Form::text('lname', $profile->lname, ['class' => 'form-control','required' => 'required']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('body', 'Body') !!}
-                            {!! Form::text('body', $profile->body, ['class' => 'form-control','required' => 'required']) !!}
-                        </div>
-                        <button class="btn btn-success float-right" value="submit" type="submit" id="submit">Save
-                        </button>
-                        {!! Form::close() !!}
+                        <h5 class="m-0"><strong>{{ $users->name }}</strong></h5>
+                        <p class="mb-2">
+                            <small>Following: <span class="badge badge-primary" userid={{$users->id}}>{{ $users->followings()->get()->count() }}</span>
+                            </small>
+                            <small>Followers: <span class="badge badge-primary tl-follower">{{ $users->followers()->get()->count() }}</span>
+                            </small>
+                        </p>
+
                     </div>
 
                 </div>

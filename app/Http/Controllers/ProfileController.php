@@ -31,6 +31,16 @@ class ProfileController extends Controller
         return view('profileForm', ['profile' => $profile,'edit' => $edit  ]);
     }
 
+    public function index1()
+    {
+        $user = Auth::user();
+        $edit = FALSE;
+        //$question = $user->questions()->paginate(6);
+        $users = User::get();
+        return view('profileForm', ['users' => $user, 'edit' => $edit ]);
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
